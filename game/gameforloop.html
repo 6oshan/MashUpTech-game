@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(159, 85, 228);
+        }
+
+
+        .container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .grid {
+            width: 400px;
+            height: 440px;
+            position: relative;
+            
+
+        }
+
+        button {
+            border: 0;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(104, 7, 169, 0.499);
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 23px;
+        }
+
+        .heading {
+            text-align: center;
+            color: white;
+        }
+
+        #text {
+            width: 300px;
+            height: 50px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+
+        .celebration {
+            width: 700px;
+            height: 700px;
+            position: absolute;
+            opacity: 0;
+        }
+        #TryAgain{
+            background-color: rgb(82, 82, 233);
+            width: 200px;
+            height: 50px;
+            opacity: 0;
+            margin-top: 20px;
+            cursor: pointer;
+            position: absolute;
+            margin-top: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conatainer1">
+
+        <div class="container">
+            <lottie-player class="celebration"
+                src="https://lottie.host/aca26911-7db5-4643-9177-f0f3e057ca13/707eBPM95u.json" speed="1.5" loop autoplay
+                direction="1" mode="normal">
+            </lottie-player>
+            <div class="grid">
+                <div class="heading">
+                    <h1>TIC TAC TOE</h1>
+                </div>
+                <div class="row">
+                    <button onclick="textin(0)" id="btn1" class="butt"></button>
+                    <button onclick="textin(1)" id="btn2" class="butt"></button>
+                    <button onclick="textin(2)" id="btn3" class="butt"></button>
+                </div>
+                <div class="row">
+                    <button onclick="textin(3)" id="btn4" class="butt"></button>
+                    <button onclick="textin(4)" id="btn5" class="butt"></button>
+                    <button onclick="textin(5)" id="btn6" class="butt"></button>
+                </div>
+                <div class="row">
+                    <button onclick="textin(6)" id="btn7" class="butt"></button>
+                    <button onclick="textin(7)" id="btn8" class="butt"></button>
+                    <button onclick="textin(8)" id="btn9" class="butt"></button>
+                </div>
+            </div>
+            <div id="text"></div>
+            <button id="TryAgain" onclick="tryAgain()">Try Again</button>
+        </div>
+       
+    </div>
+
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
+    </script>
+    <script>
+        count = 0;
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        var btn3 = document.getElementById('btn3');
+        var btn4 = document.getElementById('btn4');
+        var btn5 = document.getElementById('btn5');
+        var btn6 = document.getElementById('btn6');
+        var btn7 = document.getElementById('btn7');
+        var btn8 = document.getElementById('btn8');
+        var btn9 = document.getElementById('btn9');
+        var text = document.getElementById('text');
+        var celebration = document.getElementsByClassName('celebration');
+        var butt =document.getElementsByClassName('butt')
+        console.log(butt)
+        
+ 
+
+       function textin(param){
+        for(i=0;i<butt.length;i++){
+            if (text.innerText==='' && param == i && butt[i].innerText===''){
+                if (count % 2 ==0){
+                    butt[i].innerText='O';
+                    butt[i].style.backgroundColor = 'red';
+                    count +=1;
+                }else{
+                    butt[i].innerText='X';
+                    butt[i].style.backgroundColor ='green'
+                    count +=1
+                }
+                
+            }
+        }
+        check()
+       }
+
+        function check() {
+            if (((btn1.innerText === "O") && (btn2.innerText === "O") && (btn3.innerText === "O"))
+                || ((btn4.innerText === "O") && (btn5.innerText === "O") && (btn6.innerText === "O"))
+                || ((btn9.innerText === "O") && (btn7.innerText === "O") && (btn8.innerText === "O"))
+                || ((btn1.innerText === "O") && (btn4.innerText === "O") && (btn7.innerText === "O"))
+                || ((btn1.innerText === "O") && (btn4.innerText === "O") && (btn7.innerText === "O"))
+                || ((btn2.innerText === "O") && (btn5.innerText === "O") && (btn8.innerText === "O"))
+                || ((btn3.innerText === "O") && (btn6.innerText === "O") && (btn9.innerText === "O"))
+                || ((btn1.innerText === "O") && (btn5.innerText === "O") && (btn9.innerText === "O"))
+                || ((btn3.innerText === "O") && (btn5.innerText === "O") && (btn7.innerText === "O"))) {
+                text.innerText = "player1 win";
+                text.style.border = '2px solid red';
+                celebration[0].style.opacity = '100';
+                TryAgain.style.opacity='100';
+
+            } else if (((btn1.innerText === "X") && (btn2.innerText === "X") && (btn3.innerText === "X"))
+                || ((btn4.innerText === "X") && (btn5.innerText === "X") && (btn6.innerText === "X"))
+                || ((btn7.innerText === "X") && (btn8.innerText === "X") && (btn9.innerText === "X"))
+                || ((btn1.innerText === "X") && (btn4.innerText === "X") && (btn7.innerText === "X"))
+                || ((btn2.innerText === "X") && (btn5.innerText === "X") && (btn8.innerText === "X"))
+                || ((btn3.innerText === "X") && (btn6.innerText === "X") && (btn9.innerText === "X"))
+                || ((btn1.innerText === "X") && (btn5.innerText === "X") && (btn9.innerText === "X"))
+                || ((btn3.innerText === "X") && (btn5.innerText === "X") && (btn7.innerText === "X"))) {
+                text.innerText = "player 2 win"
+                text.style.border = '2px solid green'
+                celebration[0].style.opacity = '100';
+                TryAgain.style.opacity='100';
+
+            } else if (count === 9) {
+                if (text.innerText === '') {
+                    text.innerText = "Game Tie"
+                    TryAgain.style.opacity='100';
+
+                }
+            }
+        }
+        function tryAgain(){
+           window.location.reload();
+        }     
+    </script>
+</body>
+
+</html>
+
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toe</title>
+    <style>
+        body{
+            background-color: black;
+            height: 100vh;
+            color: greenyellow;
+            text-align: center;
+        }
+        #main_Area{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100vp;
+            height: 50vh;
+        }
+        .box{
+            height: 80px;
+            width: 80px;
+            border-radius: 10px;
+            background-color: greenyellow;
+            cursor: pointer;
+            border: 0;
+            color: black;
+            font-size: 40px ;
+        }
+        #gameArea{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+
+        }
+      
+    </style>
+</head>
+<body>
+    <h1>Tic tac Toe</h1>
+    <div id="main_Area">
+        <div id="gameArea">
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+        </div>
+    </div>
+    <div class="">
+        <div id="resultDiv"></div>
+    
+    <br>
+    <div style="width: 100%;">
+        <button  id="restartbtn" style="margin: auto;">restart</button>
+
+    </div>
+    
+
+    </div>
+    
+    <script src="tic.js">
+
+    </script>
+</body>
+</html>
